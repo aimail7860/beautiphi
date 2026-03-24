@@ -3,7 +3,7 @@
 <head>
   <!-- ========================================
        BEAUTIPHI MEDISPA
-       Step 1: Base HTML Structure
+       Step 2: Visual Design System & UI Kit
        ======================================== -->
   
   <!-- Meta Tags -->
@@ -24,6 +24,7 @@
   <meta property="og:description" content="Advanced skin and laser clinic with a luxury spa experience." />
   <meta property="og:url" content="https://beautiphi-medispa.example.com" />
   <meta property="og:site_name" content="BeautiPhi Medispa" />
+  <meta property="og:image" content="/images/og-image.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   
   <!-- Favicon (placeholder - to be added later) -->
@@ -32,7 +33,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/styles.css" />
@@ -42,6 +43,9 @@
 <body>
   <!-- Skip to Main Content (Accessibility) -->
   <a href="#main-content" class="sr-only">Skip to main content</a>
+
+  <!-- Navigation Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
 
   <!-- ========================================
        HEADER & NAVIGATION
@@ -67,6 +71,7 @@
       <!-- Mobile Menu Toggle -->
       <button 
         class="mobile-menu-toggle" 
+        id="mobileMenuToggle"
         aria-label="Toggle mobile menu"
         aria-expanded="false"
         aria-controls="mobile-nav"
@@ -91,37 +96,149 @@
 
   <!-- ========================================
        MAIN CONTENT
+       Editorial Layout Structure
        ======================================== -->
   <main id="main-content" role="main">
     
     <!-- HERO SECTION PLACEHOLDER -->
-    <section class="placeholder-section" aria-label="Hero Section">
-      <h3>HERO SECTION HERE</h3>
-      <p>Full-width hero with headline, subheadline, and primary CTA</p>
+    <section class="section" aria-label="Hero Section" style="background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="editorial-grid grid-2-col-asymmetric">
+          <!-- Hero Image - Spans 2 rows on desktop -->
+          <div class="image-zoom-container span-2-rows" style="grid-row: span 2;">
+            <img 
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" 
+              alt="Luxury clinic interior with marble and minimalist design" 
+              loading="lazy"
+              style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg);"
+            />
+          </div>
+          <!-- Hero Content -->
+          <div class="hero-content fade-in-up">
+            <h1>Where Medical Expertise Meets<br /><em>Luxury Indulgence</em></h1>
+            <p>Advanced skin and laser treatments in an environment of refined elegance. Experience results-driven care with the touch of a luxury spa.</p>
+            <a href="/pages/book-now.html" class="btn btn-primary">Book Your Consultation</a>
+          </div>
+          <!-- Secondary Hero Element -->
+          <div class="hero-secondary fade-in-up" style="margin-top: var(--space-8);">
+            <img 
+              src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" 
+              alt="Premium skincare products on marble surface" 
+              loading="lazy"
+              class="arch-shape"
+              style="width: 100%; max-width: 400px;"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- SERVICES OVERVIEW PLACEHOLDER -->
-    <section class="placeholder-section" aria-label="Services Overview">
-      <h3>SERVICES OVERVIEW HERE</h3>
-      <p>Grid of key treatment categories with images and links</p>
+    <section class="section section-secondary" aria-label="Services Overview">
+      <div class="container">
+        <div class="text-center" style="max-width: 600px; margin: 0 auto var(--space-16);">
+          <h2 class="fade-in-up">Curated Treatments for<br />Radiant Results</h2>
+          <p class="fade-in-up">Each service is designed with medical precision and delivered with spa-like care.</p>
+        </div>
+        
+        <div class="editorial-grid grid-2-col-asymmetric">
+          <!-- Service Card 1 -->
+          <div class="fade-in-up">
+            <div class="image-zoom-container" style="margin-bottom: var(--space-6);">
+              <img 
+                src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" 
+                alt="Hydrafacial treatment session" 
+                loading="lazy"
+                style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-md);"
+              />
+            </div>
+            <h3>Advanced Skin</h3>
+            <p>Hydrafacial, chemical peels, and medical-grade facials for transformative results.</p>
+            <a href="/pages/hydrafacial.html" class="btn btn-secondary">Explore Treatments</a>
+          </div>
+          
+          <!-- Service Card 2 -->
+          <div class="fade-in-up" style="margin-top: var(--space-12);">
+            <div class="image-zoom-container" style="margin-bottom: var(--space-6);">
+              <img 
+                src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?w=600&q=80" 
+                alt="Laser hair removal treatment" 
+                loading="lazy"
+                style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-md);"
+              />
+            </div>
+            <h3>Laser Hair Removal</h3>
+            <p>State-of-the-art laser technology for smooth, long-lasting results.</p>
+            <a href="/pages/laser-hair-removal.html" class="btn btn-secondary">Learn More</a>
+          </div>
+          
+          <!-- Service Card 3 - Full Width -->
+          <div class="fade-in-up" style="grid-column: 1 / -1; margin-top: var(--space-12);">
+            <div class="editorial-grid grid-2-col-asymmetric" style="align-items: center;">
+              <div>
+                <h3>Body Contouring</h3>
+                <p>Non-invasive technologies to sculpt and define your natural silhouette.</p>
+                <a href="/pages/body-contouring.html" class="btn btn-secondary">Discover More</a>
+              </div>
+              <div class="image-zoom-container">
+                <img 
+                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" 
+                  alt="Spa massage and body treatment room" 
+                  loading="lazy"
+                  style="width: 100%; height: 350px; object-fit: cover; border-radius: var(--radius-md);"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT/INTRO PLACEHOLDER -->
-    <section class="placeholder-section" aria-label="About Introduction">
-      <h3>ABOUT SECTION HERE</h3>
-      <p>Clinic credentials, expertise, and unique value proposition</p>
+    <section class="section" aria-label="About Introduction">
+      <div class="container">
+        <div class="editorial-grid grid-2-col-asymmetric" style="align-items: center;">
+          <div class="fade-in-up">
+            <img 
+              src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80" 
+              alt="Professional aesthetician in modern clinic" 
+              loading="lazy"
+              class="arch-shape"
+              style="width: 100%; max-width: 500px;"
+            />
+          </div>
+          <div class="fade-in-up" style="padding-left: var(--space-8);">
+            <h2>Clinical Excellence,<br />Personalised Care</h2>
+            <p>At BeautiPhi Medispa, we combine advanced medical technology with an intimate understanding of your aesthetic goals.</p>
+            <p>Our team of certified professionals delivers treatments that are as safe as they are effective, in an environment designed for your comfort and peace of mind.</p>
+            <a href="/pages/about.html" class="btn btn-secondary">Meet Our Team</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TESTIMONIALS PLACEHOLDER -->
-    <section class="placeholder-section" aria-label="Testimonials">
-      <h3>TESTIMONIALS HERE</h3>
-      <p>Social proof from satisfied clients</p>
+    <section class="section section-lilac" aria-label="Testimonials">
+      <div class="container">
+        <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+          <h2 class="fade-in-up">Client Stories</h2>
+          <blockquote class="fade-in-up" style="font-family: var(--font-heading); font-size: var(--text-2xl); font-style: italic; margin: var(--space-12) 0; color: var(--text-primary);">
+            "The most professional and luxurious clinic experience I've ever had. The results speak for themselves."
+          </blockquote>
+          <cite class="fade-in-up" style="font-style: normal; color: var(--text-secondary);">— Sarah M., London</cite>
+        </div>
+      </div>
     </section>
 
     <!-- CTA BANNER PLACEHOLDER -->
-    <section class="placeholder-section" aria-label="Call to Action Banner">
-      <h3>CTA BANNER HERE</h3>
-      <p>Prominent booking call-to-action</p>
+    <section class="section" aria-label="Call to Action Banner" style="background-color: var(--text-primary); color: var(--bg-white);">
+      <div class="container text-center">
+        <div class="fade-in-up">
+          <h2 style="color: var(--bg-white);">Ready to Begin Your Journey?</h2>
+          <p style="color: var(--gray-medium); max-width: 500px; margin: var(--space-4) auto var(--space-8);">Book a consultation with our experts and discover a personalised treatment plan tailored to your goals.</p>
+          <a href="/pages/book-now.html" class="btn btn-outline-light">Book Now</a>
+        </div>
+      </div>
     </section>
 
   </main>
