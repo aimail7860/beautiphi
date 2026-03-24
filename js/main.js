@@ -1,11 +1,11 @@
 /* ========================================
    BEAUTIPHI MEDISPA - MAIN JAVASCRIPT
-   Step 1: Core Functionality
+   Step 2: Visual Design System & Interactions
    ======================================== */
 
 /**
  * BeautiPhi Medispa - Main JavaScript
- * Handles navigation, mobile menu, and core interactions
+ * Handles navigation, mobile menu, scroll effects, and animations
  */
 
 (function() {
@@ -17,7 +17,9 @@
   
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const navMobile = document.querySelector('.nav-mobile');
+  const navOverlay = document.getElementById('navOverlay');
   const siteHeader = document.querySelector('.site-header');
+  const fadeElements = document.querySelectorAll('.fade-in-up');
 
   // ========================================
   // MOBILE MENU TOGGLE
@@ -25,28 +27,28 @@
   
   function toggleMobileMenu() {
     if (navMobile && mobileMenuToggle) {
-      navMobile.classList.toggle('active');
+      const isActive = navMobile.classList.toggle('active');
       
-      // Animate hamburger icon
-      const spans = mobileMenuToggle.querySelectorAll('span');
-      if (navMobile.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-      } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+      // Toggle hamburger animation class
+      mobileMenuToggle.classList.toggle('active', isActive);
+      
+      // Toggle overlay
+      if (navOverlay) {
+        navOverlay.classList.toggle('active', isActive);
       }
+      
+      // Update ARIA attributes
+      mobileMenuToggle.setAttribute('aria-expanded', isActive);
+      
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isActive ? 'hidden' : '';
     }
   }
 
-  // Close mobile menu when clicking outside
-  function closeMobileMenuOutside(event) {
+  // Close mobile menu when clicking overlay
+  function closeMobileMenuOnOverlay() {
     if (navMobile && navMobile.classList.contains('active')) {
-      if (!navMobile.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
-        toggleMobileMenu();
-      }
+      toggleMobileMenu();
     }
   }
 
@@ -63,14 +65,37 @@
   // HEADER SCROLL EFFECT
   // ========================================
   
+  let lastScrollY = window.scrollY;
+  
   function handleScroll() {
     if (siteHeader) {
+      // Add scrolled class for shadow effect
       if (window.scrollY > 50) {
-        siteHeader.style.boxShadow = 'var(--shadow-md)';
+        siteHeader.classList.add('scrolled');
       } else {
-        siteHeader.style.boxShadow = 'none';
+        siteHeader.classList.remove('scrolled');
       }
     }
+    
+    lastScrollY = window.scrollY;
+  }
+
+  // ========================================
+  // FADE IN UP ANIMATION ON SCROLL
+  // ========================================
+  
+  function checkFadeElements() {
+    if (!fadeElements.length) return;
+    
+    const triggerBottom = window.innerHeight * 0.85;
+    
+    fadeElements.forEach(element => {
+      const elementTop = element.getBoundingClientRect().top;
+      
+      if (elementTop < triggerBottom) {
+        element.classList.add('visible');
+      }
+    });
   }
 
   // ========================================
@@ -86,7 +111,7 @@
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        const headerOffset = 80;
+        const headerOffset = 100;
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -104,6 +129,29 @@
   }
 
   // ========================================
+  // IMAGE LAZY LOADING ENHANCEMENT
+  // ========================================
+  
+  function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src || img.src;
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+  }
+
+  // ========================================
   // EVENT LISTENERS
   // ========================================
   
@@ -113,14 +161,19 @@
       mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     }
     
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', closeMobileMenuOutside);
+    // Close mobile menu when clicking overlay
+    if (navOverlay) {
+      navOverlay.addEventListener('click', closeMobileMenuOnOverlay);
+    }
     
     // Close mobile menu when clicking a link
     document.addEventListener('click', closeMobileMenuOnLinkClick);
     
     // Header scroll effect
     window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Fade in up animations on scroll
+    window.addEventListener('scroll', checkFadeElements, { passive: true });
     
     // Smooth scroll for anchor links
     document.addEventListener('click', handleAnchorLinks);
@@ -151,6 +204,12 @@
   function init() {
     initEventListeners();
     document.addEventListener('keydown', handleKeyboardNavigation);
+    
+    // Check fade elements on load
+    checkFadeElements();
+    
+    // Initialize lazy loading
+    initLazyLoading();
     
     console.log('BeautiPhi Medispa initialized successfully');
   }
