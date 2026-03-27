@@ -60,11 +60,62 @@
       <!-- Desktop Navigation -->
       <nav class="nav-desktop" role="navigation" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="/pages/treatments.html" class="nav-link">Treatments</a></li>
-          <li><a href="/pages/about.html" class="nav-link">About</a></li>
-          <li><a href="/pages/results.html" class="nav-link">Results</a></li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">About</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/about/our-clinic.html">Our Clinic</a></li>
+              <li><a href="/pages/about/philosophy.html">Philosophy</a></li>
+              <li><a href="/pages/about/team.html">Team</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Skin Clinic</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/skin-clinic/hydrafacial.html">Hydrafacial</a></li>
+              <li><a href="/pages/skin-clinic/microneedling.html">Microneedling</a></li>
+              <li><a href="/pages/skin-clinic/peels.html">Peels</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Body</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/body/fat-freezing.html">Fat Freezing</a></li>
+              <li><a href="/pages/body/contouring.html">Contouring</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Laser Hair Removal</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/laser-hair-removal/face.html">Face</a></li>
+              <li><a href="/pages/laser-hair-removal/body.html">Body</a></li>
+              <li><a href="/pages/laser-hair-removal/consultation.html">Consultation</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Spa Rituals</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/spa-rituals/facials.html">Facials</a></li>
+              <li><a href="/pages/spa-rituals/massage.html">Massage</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Concerns</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/concerns/acne.html">Acne</a></li>
+              <li><a href="/pages/concerns/pigmentation.html">Pigmentation</a></li>
+              <li><a href="/pages/concerns/rosacea.html">Rosacea</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Results</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/results/gallery.html">Gallery</a></li>
+              <li><a href="/pages/results/reviews.html">Reviews</a></li>
+            </ul>
+          </li>
+          <li><a href="/pages/journal.html" class="nav-link">Journal</a></li>
           <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
-          <li><a href="/pages/book-now.html" class="btn btn-primary">Book Now</a></li>
+          <li><a href="/pages/contact.html#booking" class="btn btn-primary">Book Now</a></li>
         </ul>
       </nav>
 
@@ -84,12 +135,63 @@
 
     <!-- Mobile Navigation -->
     <nav id="mobile-nav" class="nav-mobile" role="navigation" aria-label="Mobile navigation">
-      <ul class="nav-list">
-        <li><a href="/pages/treatments.html" class="nav-link">Treatments</a></li>
-        <li><a href="/pages/about.html" class="nav-link">About</a></li>
-        <li><a href="/pages/results.html" class="nav-link">Results</a></li>
+      <ul class="nav-list mobile-nav-list">
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">About</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/about/our-clinic.html">Our Clinic</a></li>
+            <li><a href="/pages/about/philosophy.html">Philosophy</a></li>
+            <li><a href="/pages/about/team.html">Team</a></li>
+          </ul>
+        </li>
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">Skin Clinic</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/skin-clinic/hydrafacial.html">Hydrafacial</a></li>
+            <li><a href="/pages/skin-clinic/microneedling.html">Microneedling</a></li>
+            <li><a href="/pages/skin-clinic/peels.html">Peels</a></li>
+          </ul>
+        </li>
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">Body</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/body/fat-freezing.html">Fat Freezing</a></li>
+            <li><a href="/pages/body/contouring.html">Contouring</a></li>
+          </ul>
+        </li>
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">Laser Hair Removal</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/laser-hair-removal/face.html">Face</a></li>
+            <li><a href="/pages/laser-hair-removal/body.html">Body</a></li>
+            <li><a href="/pages/laser-hair-removal/consultation.html">Consultation</a></li>
+          </ul>
+        </li>
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">Spa Rituals</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/spa-rituals/facials.html">Facials</a></li>
+            <li><a href="/pages/spa-rituals/massage.html">Massage</a></li>
+          </ul>
+        </li>
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">Concerns</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/concerns/acne.html">Acne</a></li>
+            <li><a href="/pages/concerns/pigmentation.html">Pigmentation</a></li>
+            <li><a href="/pages/concerns/rosacea.html">Rosacea</a></li>
+          </ul>
+        </li>
+        <li class="mobile-dropdown-item">
+          <button class="mobile-dropdown-toggle" aria-expanded="false">Results</button>
+          <ul class="mobile-dropdown-menu">
+            <li><a href="/pages/results/gallery.html">Gallery</a></li>
+            <li><a href="/pages/results/reviews.html">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="/pages/journal.html" class="nav-link">Journal</a></li>
         <li><a href="/pages/contact.html" class="nav-link">Contact</a></li>
-        <li><a href="/pages/book-now.html" class="btn btn-primary">Book Now</a></li>
+        <li><a href="/pages/contact.html#booking" class="btn btn-primary">Book Now</a></li>
       </ul>
     </nav>
   </header>
@@ -285,11 +387,11 @@
       <div class="footer-links">
         <h4>Treatments</h4>
         <ul>
-          <li><a href="/pages/hydrafacial.html">Hydrafacial</a></li>
-          <li><a href="/pages/laser-hair-removal.html">Laser Hair Removal</a></li>
-          <li><a href="/pages/body-contouring.html">Body Contouring</a></li>
-          <li><a href="/pages/skin-peels.html">Chemical Peels</a></li>
-          <li><a href="/pages/medical-skincare.html">Medical Skincare</a></li>
+          <li><a href="/pages/skin-clinic/hydrafacial.html">Hydrafacial</a></li>
+          <li><a href="/pages/laser-hair-removal/face.html">Laser Hair Removal</a></li>
+          <li><a href="/pages/body/contouring.html">Body Contouring</a></li>
+          <li><a href="/pages/skin-clinic/peels.html">Chemical Peels</a></li>
+          <li><a href="/pages/spa-rituals/facials.html">Medical Facials</a></li>
         </ul>
       </div>
 
@@ -314,9 +416,9 @@
     <div class="container footer-bottom">
       <p>&copy; 2024 BeautiPhi Medispa. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="/pages/privacy-policy.html">Privacy Policy</a>
-        <a href="/pages/terms-conditions.html">Terms & Conditions</a>
-        <a href="/pages/cookie-policy.html">Cookie Policy</a>
+        <a href="/pages/about/our-clinic.html">Privacy Policy</a>
+        <a href="/pages/about/our-clinic.html">Terms & Conditions</a>
+        <a href="/pages/about/our-clinic.html">Cookie Policy</a>
       </div>
     </div>
   </footer>
