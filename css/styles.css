@@ -1,370 +1,152 @@
-/* ========================================
+/* =========================================
    BEAUTIPHI MEDISPA - DESIGN SYSTEM
-   Step 2: 2030 Luxury Clinic Visual Design
-   ======================================== */
+   ========================================= */
 
-/* ========================================
-   CSS VARIABLES (DESIGN TOKENS)
-   Updated for Luxury Medispa Palette
-   ======================================== */
 :root {
-  /* --- COLOR PALETTE: 2030 Luxury Clinic --- */
-  
-  /* Background Colors */
-  --bg-primary: #F9F8F6;           /* Soft Off-White */
-  --bg-secondary: #F2F0EB;         /* Warm Grey/Taupe */
-  --bg-white: #FFFFFF;             /* Pure white for cards/elements */
-  
-  /* Text Colors */
-  --text-primary: #2C2C2C;         /* Deep Charcoal - NOT pure black */
-  --text-secondary: #5A5A5A;       /* Warm Grey */
-  --text-light: #8B8B8B;           /* Light grey for subtle text */
-  
-  /* Accent Colors */
-  --accent-primary: #8B7D8B;       /* Muted Plum/Mauve */
-  --accent-gold: #D4C4A8;          /* Subtle Champagne Gold */
-  --accent-soft-lilac: #E6E2F0;    /* Optional background tint */
-  
-  /* Neutral Grays */
-  --gray-light: #E8E6E1;           /* Borders, dividers */
-  --gray-medium: #A8A49E;          /* Secondary elements */
-  --gray-dark: #6B6863;            /* Tertiary text */
-  
-  /* Semantic Colors */
-  --color-success: #7A896A;        /* Success states */
-  --color-error: #C45C5C;          /* Error states */
-  --color-focus: #8B7D8B;          /* Focus outlines */
-
-  /* --- TYPOGRAPHY --- */
-  
-  /* Font Families */
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  /* Font Sizes (Mobile First) */
-  --text-xs: 0.75rem;      /* 12px */
-  --text-sm: 0.875rem;     /* 14px */
-  --text-base: 1rem;       /* 16px */
-  --text-lg: 1.125rem;     /* 18px */
-  --text-xl: 1.25rem;      /* 20px */
-  --text-2xl: 1.5rem;      /* 24px */
-  --text-3xl: 1.875rem;    /* 30px */
-  --text-4xl: 2.25rem;     /* 36px */
-  --text-5xl: 3rem;        /* 48px */
-  --text-6xl: 3.75rem;     /* 60px */
-  
-  /* Font Weights */
-  --font-light: 300;
-  --font-regular: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  
-  /* Line Heights */
-  --leading-tight: 1.2;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.8;    /* Increased for editorial feel */
-  
-  /* Letter Spacing */
-  --tracking-tight: -0.02em;  /* Slightly tight for headings */
-  --tracking-normal: 0;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
-
-  /* --- SPACING SCALE --- */
-  
-  --space-0: 0;
-  --space-1: 0.25rem;      /* 4px */
-  --space-2: 0.5rem;       /* 8px */
-  --space-3: 0.75rem;      /* 12px */
-  --space-4: 1rem;         /* 16px */
-  --space-5: 1.25rem;      /* 20px */
-  --space-6: 1.5rem;       /* 24px */
-  --space-8: 2rem;         /* 32px */
-  --space-10: 2.5rem;      /* 40px */
-  --space-12: 3rem;        /* 48px */
-  --space-16: 4rem;        /* 64px */
-  --space-20: 5rem;        /* 80px */
-  --space-24: 6rem;        /* 96px */
-  --space-32: 8rem;        /* 128px */
-
-  /* --- LAYOUT --- */
-  
-  /* Container Max Widths */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1200px;   /* Editorial max-width */
-  --container-max: 1440px;
-  
-  /* Section Padding - Generous for editorial breathing room */
-  --section-padding-y: var(--space-24);
-  --section-padding-x: var(--space-6);
-  
-  /* Border Radius */
-  --radius-none: 0;
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-full: 9999px;
-  --radius-arch: 200px 200px 0 0;  /* Moroccan arch shape */
-
-  /* --- SHADOWS --- */
-  
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
-
-  /* --- TRANSITIONS --- */
-  
-  --transition-fast: 150ms ease;
-  --transition-base: 300ms ease;
-  --transition-slow: 500ms ease;
-
-  /* --- Z-INDEX SCALE --- */
-  
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-fixed: 300;
-  --z-modal-backdrop: 400;
-  --z-modal: 500;
-  --z-tooltip: 600;
+  --bg-primary: #F9F8F6;
+  --bg-secondary: #F2F0EB;
+  --text-primary: #2C2C2C;
+  --text-secondary: #5A5A5A;
+  --accent-primary: #8B7D8B;
+  --accent-gold: #D4C4A8;
+  --accent-soft-lilac: #E6E2F0;
+  --white: #FFFFFF;
+  --border-light: #E5E5E5;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 96px;
+  --transition-smooth: all 0.3s ease;
 }
 
-/* ========================================
-   CSS RESET & BASE STYLES
-   ======================================== */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-weight: var(--font-regular);
-  line-height: var(--leading-relaxed);
-  color: var(--text-primary);
   background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
-
-/* ========================================
-   TYPOGRAPHY STYLES
-   Editorial Style: Large, Spacious, Impactful
-   ======================================== */
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: var(--font-regular);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
   color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
 }
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+p { margin-bottom: var(--space-sm); color: var(--text-secondary); }
+a { text-decoration: none; color: inherit; transition: var(--transition-smooth); }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
 
-h1 {
-  font-size: var(--text-4xl);
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-md); }
+.section-padding { padding: var(--space-xl) 0; }
+.text-center { text-align: center; }
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-radius: 2px;
 }
+.btn-primary { background-color: var(--text-primary); color: var(--white); }
+.btn-primary:hover { background-color: var(--accent-primary); transform: translateY(-2px); }
+.btn-outline { background-color: transparent; border-color: var(--text-primary); color: var(--text-primary); }
+.btn-outline:hover { background-color: var(--text-primary); color: var(--white); }
 
-h2 {
-  font-size: var(--text-3xl);
-}
-
-h3 {
-  font-size: var(--text-2xl);
-}
-
-h4 {
-  font-size: var(--text-xl);
-}
-
-p {
-  margin-bottom: var(--space-6);
-  color: var(--text-secondary);
-}
-
-/* Avoid dense paragraphs - short, impactful blocks */
-p:last-child {
-  margin-bottom: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* ========================================
-   LAYOUT & GRID SYSTEM
-   Editorial Magazine-Style Layouts
-   ======================================== */
-
-.container {
-  width: 100%;
-  max-width: var(--container-xl);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--space-6);
-  padding-right: var(--space-6);
-}
-
-/* Editorial Grid System */
-.editorial-grid {
-  display: grid;
-  gap: var(--space-12);
-}
-
-/* Asymmetric 2-column grid */
-.grid-2-col-asymmetric {
-  grid-template-columns: 1fr;
-}
-
-.grid-2-col-asymmetric .span-2-rows {
-  grid-row: span 2;
-}
-
-/* Full-width break-out sections */
-.full-bleed {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
-/* ========================================
-   SECTION STYLES
-   Generous Padding for Breathing Room
-   ======================================== */
-
-.section {
-  padding-top: var(--section-padding-y);
-  padding-bottom: var(--section-padding-y);
-}
-
-.section-secondary {
-  background-color: var(--bg-secondary);
-}
-
-.section-lilac {
-  background-color: var(--accent-soft-lilac);
-}
-
-/* ========================================
-   UTILITY CLASSES
-   ======================================== */
-
-.text-center {
-  text-align: center;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ========================================
-   ANIMATION & INTERACTION UTILITIES
-   ======================================== */
-
-/* Fade In Up Animation */
 .fade-in-up {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+/* Header & Nav */
+.header {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background-color: rgba(249, 248, 246, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: var(--transition-smooth);
+}
+.header.scrolled { border-bottom: 1px solid var(--border-light); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.03em; }
+.nav-menu { display: flex; gap: var(--space-md); align-items: center; }
+.nav-item { position: relative; }
+.nav-link { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 400; color: var(--text-primary); padding: 10px 0; position: relative; cursor: pointer; }
+.nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background-color: var(--accent-gold); transition: width 0.3s ease; }
+.nav-link:hover::after { width: 100%; }
+
+/* Dropdown */
+.dropdown-menu {
+  position: absolute; top: 100%; left: 0; background-color: var(--white);
+  min-width: 220px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-light); opacity: 0; visibility: hidden;
+  transform: translateY(10px); transition: all 0.3s ease;
+  padding: var(--space-sm) 0; z-index: 999;
+}
+.nav-item:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-item { display: block; padding: 12px 24px; font-size: 0.9rem; color: var(--text-secondary); transition: background 0.2s; }
+.dropdown-item:hover { background-color: var(--bg-secondary); color: var(--accent-primary); }
+
+/* Mobile Toggle */
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+.bar { width: 25px; height: 2px; background-color: var(--text-primary); transition: var(--transition-smooth); }
+
+@media (max-width: 1024px) {
+  .mobile-toggle { display: flex; }
+  .nav-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px;
+    height: 100vh; background-color: var(--white); flex-direction: column;
+    align-items: flex-start; padding: 100px var(--space-md);
+    transition: right 0.4s ease; box-shadow: -5px 0 20px rgba(0,0,0,0.1); overflow-y: auto;
+  }
+  .nav-menu.active { right: 0; }
+  .nav-item { width: 100%; }
+  .nav-link { display: block; font-size: 1.1rem; border-bottom: 1px solid var(--border-light); width: 100%; padding: 15px 0; }
+  .nav-link::after { display: none; }
+  .dropdown-menu {
+    position: static; visibility: visible; opacity: 1; transform: none;
+    box-shadow: none; border: none; background-color: var(--bg-secondary);
+    display: none; padding-left: 20px;
+  }
+  .dropdown-menu.show { display: block; }
+  .dropdown-item { padding: 12px 0; font-size: 0.95rem; }
 }
 
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Footer */
+.footer { background-color: var(--text-primary); color: var(--white); padding: var(--space-xl) 0 var(--space-md); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-lg); }
+.footer-col h4 { color: var(--accent-gold); font-size: 1.1rem; margin-bottom: var(--space-sm); font-family: var(--font-body); text-transform: uppercase; letter-spacing: 1px; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #ccc; font-size: 0.95rem; }
+.footer-links a:hover { color: var(--accent-gold); }
+.social-icons { display: flex; gap: 15px; margin-top: 20px; }
+.social-icon { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition-smooth); }
+.social-icon:hover { background-color: var(--accent-gold); border-color: var(--accent-gold); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-md); text-align: center; font-size: 0.85rem; color: #888; }
 
-/* Image Zoom on Hover */
-.image-zoom-container {
-  overflow: hidden;
-}
-
-.image-zoom-container img {
-  transition: transform var(--transition-slow);
-}
-
-.image-zoom-container:hover img {
-  transform: scale(1.05);
-}
-
-/* Moroccan Arch Shape */
-.arch-shape {
-  border-radius: var(--radius-arch);
-}
-
-/* ========================================
-   RESPONSIVE TYPOGRAPHY
-   ======================================== */
-
-@media (min-width: 768px) {
-  html {
-    font-size: 17px;
-  }
-  
-  h1 {
-    font-size: var(--text-5xl);
-  }
-  
-  h2 {
-    font-size: var(--text-4xl);
-  }
-  
-  .grid-2-col-asymmetric {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  :root {
-    --section-padding-y: var(--space-32);
-    --section-padding-x: var(--space-8);
-  }
-}
-
-@media (min-width: 1024px) {
-  html {
-    font-size: 18px;
-  }
-  
-  h1 {
-    font-size: var(--text-6xl);
-  }
+/* Hero & Layout */
+.hero { padding-top: 140px; padding-bottom: var(--space-xl); min-height: 80vh; display: flex; align-items: center; }
+.editorial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: center; }
+.arch-shape { border-radius: 200px 200px 0 0; overflow: hidden; }
+@media (max-width: 768px) {
+  .editorial-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 2.2rem; }
+  .hero { padding-top: 100px; }
 }
