@@ -20,6 +20,7 @@
   const navOverlay = document.getElementById('navOverlay');
   const siteHeader = document.querySelector('.site-header');
   const fadeElements = document.querySelectorAll('.fade-in-up');
+  const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
 
   // ========================================
   // MOBILE MENU TOGGLE
@@ -58,6 +59,24 @@
       if (navMobile && navMobile.classList.contains('active')) {
         toggleMobileMenu();
       }
+    }
+  }
+
+  // ========================================
+  // MOBILE DROPDOWN TOGGLE
+  // ========================================
+  
+  function handleMobileDropdown(event) {
+    const toggle = event.currentTarget;
+    const dropdownMenu = toggle.nextElementSibling;
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+    
+    // Toggle aria-expanded
+    toggle.setAttribute('aria-expanded', !isExpanded);
+    
+    // Toggle expanded class on dropdown menu
+    if (dropdownMenu) {
+      dropdownMenu.classList.toggle('expanded', !isExpanded);
     }
   }
 
@@ -160,6 +179,11 @@
     if (mobileMenuToggle) {
       mobileMenuToggle.addEventListener('click', toggleMobileMenu);
     }
+    
+    // Mobile dropdown toggles
+    mobileDropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', handleMobileDropdown);
+    });
     
     // Close mobile menu when clicking overlay
     if (navOverlay) {
